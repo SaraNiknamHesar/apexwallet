@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.1.2</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.apexwallet</groupId>
+    <artifactId>apexwallet</artifactId>
+    <version>0.8.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>ApexWallet</name>
+    <description>Reference implementation of ApexWallet phases 0-17 for interview study. Not certified bank software.</description>
+
+    <modules>
+        <module>apexwallet-domain</module>
+        <module>apexwallet-iso20022</module>
+        <module>apexwallet-ai</module>
+        <module>apexwallet-app</module>
+        <module>apexwallet-assistant</module>
+    </modules>
+
+    <properties>
+        <java.version>25</java.version>
+        <jqwik.version>1.9.3</jqwik.version>
+        <springdoc.version>3.1.1</springdoc.version>
+    </properties>
+</project>

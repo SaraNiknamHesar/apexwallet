@@ -1,0 +1,12 @@
+# Local study profile. No database. Keys below are generated in memory when left empty.
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.JndiDataSourceAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.XADataSourceAutoConfiguration
+      - org.springframework.boot.hibernate.autoconfigure.HibernateJpaAutoConfiguration
+      - org.springframework.boot.flyway.autoconfigure.FlywayAutoConfiguration
+      - org.springframework.boot.data.jpa.autoconfigure.DataJpaRepositoriesAutoConfiguration
+  jpa:
+    open-in-view: false

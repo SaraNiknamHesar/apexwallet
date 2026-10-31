@@ -1,0 +1,14 @@
+target/
+web/node_modules/
+web/dist/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+.env
+*.log
+.DS_Store
+out/
+build/

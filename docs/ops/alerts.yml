@@ -1,0 +1,27 @@
+groups:
+  - name: apexwallet-study
+    rules:
+      - alert: LedgerImbalance
+        expr: apexwallet_reconciliation_mismatches > 0
+        for: 1m
+        annotations:
+          summary: Cached balance does not match the journal fold.
+          action: Stop new high-value approvals, run account_reconciliation, and follow docs/ops/RESTORE.md if the database was restored.
+      - alert: HttpErrorRate
+        expr: rate(http_server_requests_seconds_count{status=~"5.."}[5m]) > 0.05
+        for: 5m
+        annotations:
+          summary: Error responses are above 5 percent.
+          action: Read correlation ids in the log, then the audit row for the same id. Do not retry a POSTED payment without its idempotency key.
+      - alert: OutboxDeadLetters
+        expr: apexwallet_outbox_dead_letters > 0
+        for: 1m
+        annotations:
+          summary: A payment event exceeded the relay attempt limit.
+          action: Inspect the dead-letter payload, fix the consumer, and replay only that event id once.
+      - alert: ConsumerLag
+        expr: apexwallet_outbox_unpublished > 100
+        for: 5m
+        annotations:
+          summary: The outbox backlog is growing.
+          action: Check that the relay is running. Do not delete unpublished rows.

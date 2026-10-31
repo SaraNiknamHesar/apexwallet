@@ -1,0 +1,10 @@
+{
+  "title": "ApexWallet study",
+  "panels": [
+    {"title": "reconciliation mismatches", "expr": "apexwallet_reconciliation_mismatches"},
+    {"title": "unpublished outbox", "expr": "apexwallet_outbox_unpublished"},
+    {"title": "dead letters", "expr": "apexwallet_outbox_dead_letters"},
+    {"title": "http 5xx rate", "expr": "rate(http_server_requests_seconds_count{status=~\"5..\"}[5m])"}
+  ],
+  "note": "Short panel list for study. docker compose up prometheus grafana starts a real Grafana on port 3001 and loads docs/ops/grafana/dashboards/apexwallet.json. Grafana is not inside the wallet process."
+}

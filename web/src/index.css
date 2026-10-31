@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fa;
+  color: #343c6a;
+  font-family: Inter, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.app-input {
+  width: 100%;
+  border: 0;
+  border-radius: 15px;
+  background: #f5f7fa;
+  padding: 12px 14px;
+  color: #343c6a;
+  font-size: 15px;
+  outline: none;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.app-input:focus {
+  box-shadow: 0 0 0 3px rgba(24, 20, 243, 0.16);
+}
+
+.soft-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(52, 60, 106, 0.08);
+}
+
+.card-scene {
+  perspective: 1400px;
+}
+
+.card-flip {
+  position: relative;
+  height: 100%;
+  min-height: 235px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-flip.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 25px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-switch {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-knob {
+  transition: translate 0.34s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease;
+}
+
+.rise-in {
+  animation: rise-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.menu-rise {
+  transform-origin: top right;
+  animation: menu-rise 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.bar-grow {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: bar-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.line-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: line-draw 1.15s ease forwards;
+}
+
+.donut-in {
+  animation: donut-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dot-pulse {
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleY(0.08);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes donut-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.7);
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in,
+  .menu-rise,
+  .bar-grow,
+  .donut-in,
+  .dot-pulse {
+    animation: none;
+  }
+
+  .line-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .soft-card:hover {
+    transform: none;
+  }
+
+  .card-flip,
+  .card-switch,
+  .card-knob {
+    transition: none;
+  }
+}

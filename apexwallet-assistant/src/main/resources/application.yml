@@ -1,0 +1,11 @@
+server:
+  port: 8082
+  address: 127.0.0.1
+
+spring:
+  application:
+    name: apexwallet-assistant
+
+apex:
+  model-url: ${APEX_MODEL_URL:}
+  model-token: ${APEX_MODEL_TOKEN:}

@@ -1,0 +1,22 @@
+{
+  "uid": "apexwallet",
+  "title": "ApexWallet",
+  "schemaVersion": 39,
+  "timezone": "utc",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "unpublished outbox",
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "targets": [{"expr": "apexwallet_outbox_unpublished", "refId": "A"}],
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0}
+    },
+    {
+      "type": "stat",
+      "title": "dead letters",
+      "datasource": {"type": "prometheus", "uid": "prometheus"},
+      "targets": [{"expr": "apexwallet_outbox_dead_letters", "refId": "A"}],
+      "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0}
+    }
+  ]
+}

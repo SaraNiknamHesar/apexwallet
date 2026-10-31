@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
+    include-message: never
+
+spring:
+  application:
+    name: apexwallet
+  profiles:
+    active: local
+  jackson:
+    default-property-inclusion: non_null
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      show-details: never
+
+apex:
+  approval-threshold-minor: 100000
+  daily-limit-minor: 500000
+  idempotency-ttl: 24h
+  access-token-ttl: 15m
+  refresh-token-ttl: 7d
+  login-max-failures: 5
+  login-lockout: 15m
+  transfers-per-minute: 30
+  cors-allowed-origins:
+    - http://localhost:3000
+  active-key-id: dev-1
+  data-keys: {}
+  hmac-key: ""
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
